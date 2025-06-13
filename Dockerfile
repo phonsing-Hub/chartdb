@@ -18,7 +18,7 @@ RUN echo "VITE_OPENAI_API_KEY=${VITE_OPENAI_API_KEY}" > .env && \
     echo "VITE_LLM_MODEL_NAME=${VITE_LLM_MODEL_NAME}" >> .env && \
     echo "VITE_HIDE_BUCKLE_DOT_DEV=${VITE_HIDE_BUCKLE_DOT_DEV}" >> .env 
 
-RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build
+RUN npm run build
 
 FROM nginx:stable-alpine AS production
 
@@ -27,6 +27,6 @@ COPY ./default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-EXPOSE 9090
+EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]

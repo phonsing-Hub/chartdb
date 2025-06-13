@@ -1,11 +1,11 @@
 {
     "name": "chartdb",
     "private": true,
-    "version": "1.13.0",
+    "version": "1.12.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "NODE_OPTIONS='--max-old-space-size=4096' npm run lint && tsc -b && vite build",
+        "build": "npm run lint && tsc -b && vite build",
         "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
         "lint:fix": "npm run lint -- --fix",
         "preview": "vite preview",
